@@ -1,0 +1,73 @@
+<html>
+<head>
+       <title>Budget Planner</title>
+    <link rel="stylesheet" href="event.css">
+</head>
+<body>
+<div class="container">
+    <h1>Budget Planner</h1>
+Expense Checker:<select id="expenseType" onchange="checkPrice()" required>
+<option value="none">Select Expense Type </option>
+<option value="clothes">Clothes</option>
+<option value="groceries">Groceries</option>
+<option value="salary">Salary</option>
+</select><br>
+<p id="Output2"></p>
+<script>
+function checkPrice() {
+let expenseType=document.getElementById("expenseType").value;
+switch (expenseType) {
+case"clothes":document.getElementById("Output2").innerText="New Clothes Da!!";
+break;
+case"groceries":document.getElementById("Output2").innerText="Tedhe Medhe Laya Na?";
+break;
+case"salary":document.getElementById("Output2").innerText="Jeb Khali Karo Apni";
+break;
+default:documet.getElementById("Output2").innerText="Please select a Doughnut.";
+}
+}
+</script>
+Enter the amount:<input type="text"id="promo" required>
+<button onclick="applyDiscount()">Check</button>
+<p id="Output1"></p>
+<script>
+function applyDiscount() {
+let promo = document.getElementById("promo").value;
+if (promo>=10000){
+document.getElementById("Output1").innerText="Go Sell Your House!";
+} else if (promo>5000 && promo<=10000){
+document.getElementById("Output1").innerText="Today is fine, but restrict your expense!";
+} else if (promo>0 && promo<=5000){
+document.getElementById("Output1").innerText="Good, You Have Saved!!";
+} else {
+document.getElementById("Output1").innerText="Bhang Pi Rakhyo Hai Ke!";
+}
+}
+</script>
+    <form id="budget-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+<label for="time">Time:</label>
+        <input type="time" id="time" required>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" required>
+        <input type="submit" value="Add Expense">
+    </form>
+    <table id="budget-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="budget-body"></tbody>
+    </table>
+</div>
+
+<script src="event.js"></script>
+</body>
+</html>
